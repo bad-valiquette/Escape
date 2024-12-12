@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Game</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .message.success {
+            color: green;
+        }
+        .message.error {
+            color: red;
+        }
+        .header {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+	<br><h1>Local : _- _ 1 1</h1></div>
+    <div class="container">
+        <h1>Quels sont les lettres ou chiffres manquants?</h1>
+        <img src="plaque.jpg" alt="Plaque">
+        <p>Entrez votre réponse :</p>
+        <input type="text" id="answer" placeholder="Votre réponse">
+        <br><button onclick="checkAnswer()">Valider</button>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const correctAnswers = ["xtl"]; // Ajoutez ici les réponses correctes
+            const userAnswer = document.getElementById("answer").value;
+            const messageElement = document.getElementById("message");
+
+            if (correctAnswers.map(answer => answer.toLowerCase()).includes(userAnswer.toLowerCase())) {
+                messageElement.textContent = "Bonne réponse !";
+                messageElement.className = "message success";
+                messageElement.innerHTML += '<br><a href="enigme4.html">Prochaine énigme</a>';
+            } else {
+                messageElement.textContent = "Mauvaise réponse. Réessayez.";
+                messageElement.className = "message error";
+            }
+        }
+    </script>
+</body>
+</html>
