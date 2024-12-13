@@ -48,7 +48,7 @@
             <h2>Utilisez la roue au verso de la partition pour déchiffrer le mot.</h2>
         <p>Entrez votre réponse :</p>
         <input type="text" id="answer" placeholder="Votre réponse"><br>
-        <button onclick="checkAnswer()">Valider</button><br>
+        <button onclick="checkAnswer()">Valider</button>
         <div id="message" class="message"></div>
     </div>
 
@@ -61,7 +61,7 @@
             if (correctAnswers.map(answer => answer.toLowerCase()).includes(userAnswer.toLowerCase())) {
                 messageElement.textContent = "Bonne réponse !";
                 messageElement.className = "message success";
-                messageElement.innerHTML += '<br><a href="enigme3.html">Prochaine énigme</a>';
+                messageElement.innerHTML += '<h2><a href="enigme3.html">Prochaine énigme</h2></a>';
             } else {
                 messageElement.textContent = "Mauvaise réponse. Réessayez.";
                 messageElement.className = "message error";
