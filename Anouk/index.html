@@ -32,17 +32,22 @@
         .message.error {
             color: red;
         }
-     a {
+     button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+          a {
             color: yellow; /* Change la couleur des liens en jaune */
         }
         </style>
 </head>
 <body>
     <div class="container">
-        <h2>Dans ton pigeonnier, tu trouveras une parition.<br>Utilise le piano du local A-022 pour trouver le nom du jeu</h2>
+        <h2>Dans ton pigeonnier, tu trouveras une parition.<br><br>Utilise le piano du local A-022 pour trouver le nom du jeu</h2>
         <p>Entrez votre réponse :</p>
-        <input type="text" id="answer" placeholder="Votre réponse">
-        <br><button onclick="checkAnswer()">Valider</button><br>
+        <input type="text" id="answer" placeholder="Votre réponse"><br>
+        <br><button onclick="checkAnswer()">Valider</button>
         <div id="message" class="message"></div>
     </div>
 
