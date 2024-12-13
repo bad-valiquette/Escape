@@ -60,7 +60,7 @@
             if (correctAnswers.map(answer => answer.toLowerCase()).includes(userAnswer.toLowerCase())) {
                 messageElement.textContent = "Bonne réponse !";
                 messageElement.className = "message success";
-                messageElement.innerHTML += '<br><a href="enigme2.html">Prochaine énigme</a>';
+                messageElement.innerHTML += '<h2><a href="enigme2.html">Prochaine énigme</h2></a>';
             } else {
                 messageElement.textContent = "Mauvaise réponse. Réessayez.";
                 messageElement.className = "message error";
