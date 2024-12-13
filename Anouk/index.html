@@ -32,14 +32,17 @@
         .message.error {
             color: red;
         }
-    </style>
+     a {
+            color: yellow; /* Change la couleur des liens en jaune */
+        }
+        </style>
 </head>
 <body>
     <div class="container">
-        <h1>Dans ton pigeonnier, tu trouveras une parition.<br>Utilise le piano du local A-022 pour trouver le nom du jeu</h1>
+        <h2>Dans ton pigeonnier, tu trouveras une parition.<br>Utilise le piano du local A-022 pour trouver le nom du jeu</h2>
         <p>Entrez votre réponse :</p>
         <input type="text" id="answer" placeholder="Votre réponse">
-        <br><button onclick="checkAnswer()">Valider</button>
+        <br><button onclick="checkAnswer()">Valider</button><br>
         <div id="message" class="message"></div>
     </div>
 
@@ -58,6 +61,11 @@
                 messageElement.className = "message error";
             }
         }
+    document.getElementById("answer").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                checkAnswer();
+            }
+        });
     </script>
 </body>
 </html>
