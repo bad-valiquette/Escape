@@ -32,24 +32,20 @@
         .message.error {
             color: red;
         }
-        .header {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 24px;
-            font-weight: bold;
+         button {
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-	<br><h1>Local : _- 1 1 1</h1></div>
-    <div class="container">
-        <h1>Quel est le nom de cet artiste?</h1>
+        <div class="container">
+	<h1>Local : E - 1 1 1 </h1><br>
+        <h2>Quel est le nom de cet artiste?</h2>
         <img src="paint.jpg" alt="Paint">
         <p>Entrez votre réponse :</p>
-        <input type="text" id="answer" placeholder="Votre réponse">
+        <input type="text" id="answer" placeholder="Votre réponse"><br>
         <br><button onclick="checkAnswer()">Valider</button>
         <div id="message" class="message"></div>
     </div>
@@ -63,12 +59,17 @@
             if (correctAnswers.map(answer => answer.toLowerCase()).includes(userAnswer.toLowerCase())) {
                 messageElement.textContent = "Bonne réponse !";
                 messageElement.className = "message success";
-                messageElement.innerHTML += '<br><a href="fin.html">Prochaine énigme</a>';
+                messageElement.innerHTML += '<a href="fin.html"><h2>Prochaine énigme</h2></a>';
             } else {
                 messageElement.textContent = "Mauvaise réponse. Réessayez.";
                 messageElement.className = "message error";
             }
         }
+    document.getElementById("answer").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                checkAnswer();
+            }
+        });
     </script>
 </body>
 </html>
