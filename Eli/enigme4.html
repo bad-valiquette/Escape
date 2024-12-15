@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Game</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .message.success {
+            color: green;
+        }
+        .message.error {
+            color: red;
+        }
+         button {
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+	      a {
+            color: yellow; /* Change la couleur des liens en jaune */
+        }
+    </style>
+    </head>
+<body>
+        <div class="container">
+	<h1>Local : _ - 0 1 2 </h1><br>
+        <h2>Quelle heure est-il sur l'horloge de droite?</h2>
+        <img src="paint.jpg" alt="Paint">
+        <p>Entrez votre réponse :</p>
+        <input type="text" id="answer" placeholder="Inscrire l'heure"><br>
+        <br><button onclick="checkAnswer()">Valider</button>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const correctAnswers = ["12h00", "midi", "midis", "12:00", "minuit", "00:00", "00h00",]; // Ajoutez ici les réponses correctes
+            const userAnswer = document.getElementById("answer").value;
+            const messageElement = document.getElementById("message");
+
+            if (correctAnswers.map(answer => answer.toLowerCase()).includes(userAnswer.toLowerCase())) {
+                messageElement.textContent = "Bonne réponse !";
+                messageElement.className = "message success";
+                messageElement.innerHTML += '<a href="fin.html"><h2>Prochaine énigme</h2></a>';
+            } else {
+                messageElement.textContent = "Mauvaise réponse. Réessayez.";
+                messageElement.className = "message error";
+            }
+        }
+    document.getElementById("answer").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                checkAnswer();
+            }
+        });
+    </script>
+</body>
+</html>
