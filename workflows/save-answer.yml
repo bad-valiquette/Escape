@@ -1,1 +1,24 @@
+name: Save Answer
 
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [save-answer]
+
+jobs:
+  save-answer:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Append answer to file
+      run: echo "${{ github.event.client_payload.answer }}" >> answers.txt
+
+    - name: Commit changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+        git add answers.txt
+        git commit -m "Add new answer"
+        git push
